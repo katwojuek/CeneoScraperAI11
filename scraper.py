@@ -39,8 +39,7 @@ to_lang = "en"
 translator = Translator(to_lang, from_lang)
 
 product_code = input("Please enter product code: ")
-# product_code = "129901214"
-# product_code = "150607728"
+
 headers = {
     'User-Agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36"
 }
@@ -53,7 +52,6 @@ while url:
         page_dom = BeautifulSoup(response.text, "html.parser")
         opinions = page_dom.select("div.js_product-review")
         for opinion in opinions:
-
             single_opinion = {}
             for key, value in selectors.items():
                 single_opinion[key] = get_element(opinion, *value)
